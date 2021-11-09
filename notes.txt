@@ -1,0 +1,53 @@
+1. sudo apt search libgtk2.0-dev
+cd /home/user_name/OpenCv
+mkdir Release && cd Release
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_QT=ON -D WITH_GTK=ON -D WITH_OPENGL=ON -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules ../ ..
+make && sudo make install
+
+for - `terminate called after throwing an instance of 'cv::Exception'
+  what():  OpenCV(4.5.2-dev) /home/rtk/opencv_build/opencv/modules/dnn/src/darknet/darknet_io.cpp:931: error: (-213:The function/feature is not implemented) Transpose the weights (except for convolutional) is not implemented in function 'ReadDarknetFromWeightsStream'
+
+Aborted (core dumped)
+`
+
+wget https://pjreddie.com/media/files/yolov3.weights
+
+2. error - opencv 4 - brief and freak - xdfeatures
+need opencv contrib
+
+check how to add in the release
+https://towardsdatascience.com/how-to-install-opencv-and-extra-modules-from-source-using-cmake-and-then-set-it-up-in-your-pycharm-7e6ae25dbac5#:~:text=Install%20OpenCV%20master%2C%20and%20OpenCV,recognise%20the%20resulting%20OpenCV%20installation
+https://github.com/opencv/opencv_contrib
+
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+            -D CMAKE_INSTALL_PREFIX=$cwd/installation/OpenCV-"$cvVersion" \
+            -D INSTALL_C_EXAMPLES=ON \
+            -D INSTALL_PYTHON_EXAMPLES=ON \
+            -D WITH_TBB=ON \
+            -D WITH_V4L=ON \
+            -D OPENCV_PYTHON3_INSTALL_PATH=$cwd/OpenCV-$cvVersion-py3/lib/python3.5/site-packages \
+        -D WITH_QT=ON \
+        -D WITH_OPENGL=ON \
+        -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+        -D OPENCV_ENABLE_NONFREE=1 \
+        -D BUILD_EXAMPLES=ON ..
+
+studytonight.com/post/how-to-install-opencv-on-ubuntu-18-or-above
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+        -D CMAKE_INSTALL_PREFIX=/usr/local \
+        -D WITH_CUDA=OFF \
+        -D INSTALL_PYTHON_EXAMPLES=ON \
+        -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+        -D OPENCV_ENABLE_NONFREE=ON \
+        -D BUILD_EXAMPLES=ON ..
+
+        restart the pc to increase speed of the download
+
+cant load the yolov3 to github
+About Git LFS
+
+https://www.atlassian.com/git/tutorials/git-lfs
+
+https://git-lfs.github.com/
+
+https://github.com/git-lfs/git-lfs/wiki/Installation
